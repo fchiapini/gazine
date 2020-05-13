@@ -1,4 +1,6 @@
 .sidebar {
-  background-color: green;
   grid-area: sidebar;
+
+  display: flex;
+  flex-direction: column;
 }

@@ -1,0 +1,97 @@
+.sidebar {
+  background-color: var(--clr-background-dark);
+  padding: 0 1em;
+}
+
+.brand {
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+  }
+
+  &__logo {
+    height: 5rem;
+  }
+
+  &__name {
+    color: var(--color-grey-light-1);
+    font-weight: var(--fw-med);
+    font-size: var(--fs-h2);
+    text-transform: capitalize;
+  }
+}
+
+.side-nav {
+  font-size: var(--fs-sidebar);
+  letter-spacing: 0.1em;
+  font-weight: var(--fw-bold);
+  list-style: none;
+  margin-bottom: 1em;
+  border-bottom: var(--line);
+  border-width: thin;
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-4);
+    text-decoration: none;
+    text-transform: capitalize;
+    display: block;
+    padding: 1em 1rem;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__item--active {
+    background-color: snow;
+    border-left: 0.5em solid orangered;
+  }
+
+  &__link:hover {
+    color: var(--color-grey-light-1);
+    transition: color 200ms ease-in-out;
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+    fill: currentColor;
+  }
+}
+
+.podcast-nav {
+  font-size: var(--fs-sidebar);
+  letter-spacing: 0.1em;
+  font-weight: var(--fw-med);
+  list-style: none;
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-grey-light-4);
+    text-decoration: none;
+    text-transform: capitalize;
+    display: block;
+    padding: 0.7rem 1rem;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &__item--active {
+    background-color: snow;
+    border-left: 0.5em solid orangered;
+  }
+
+  &__link:hover {
+    color: var(--color-grey-light-1);
+    transition: color 200ms ease-in-out;
+  }
+}
