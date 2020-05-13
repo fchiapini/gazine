@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Sidebar />
-    <div class="header">Header</div>
+    <Header />
     <nuxt />
     <div class="player">Player</div>
   </div>
@@ -9,9 +9,11 @@
 
 <script>
 import Sidebar from '@/components/Sidebar.vue'
+import Header from '@/components/Header.vue'
 export default {
   components: {
-    Sidebar
+    Sidebar,
+    Header
   }
 }
 </script>

@@ -1,8 +1,3 @@
-.sidebar {
-  background-color: var(--clr-background-dark);
-  padding: 0 1em;
-}
-
 .brand {
   &__link {
     display: flex;
@@ -29,7 +24,7 @@
 }
 
 .side-nav {
-  font-size: var(--fs-sidebar);
+  font-size: var(--fs-body);
   letter-spacing: 0.1em;
   font-weight: var(--fw-bold);
   list-style: none;
@@ -68,7 +63,7 @@
 }
 
 .podcast-nav {
-  font-size: var(--fs-sidebar);
+  font-size: var(--fs-body);
   letter-spacing: 0.1em;
   font-weight: var(--fw-med);
   list-style: none;

@@ -1,3 +1,7 @@
 .header {
-  background-color: greenyellow;
+  background-color: var(--clr-background-dark-1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
