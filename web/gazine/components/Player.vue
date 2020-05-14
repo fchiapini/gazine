@@ -1,63 +1,63 @@
 <template>
-  <div class="player">
-    <div class="info">
+  <section class="player">
+    <div class="player__info">
       <img
         src="~/assets/img/logo.png"
         alt="Podcast cover"
-        class="info__cover"
+        class="player__info__cover"
       />
-      <div class="info__box">
-        <p class="info__box__title">Research and Innovation</p>
-        <p class="info__box__author">Felipe podcast</p>
+      <div class="player__info__box">
+        <p class="player__info__box__title">Research and Innovation</p>
+        <p class="player__info__box__author">Felipe podcast</p>
       </div>
     </div>
 
     <div class="control">
-      <div class="btns">
-        <button class="btn">
-          <svg class="btn__icon">
+      <ul class="player__control">
+        <li class="player__control__btn">
+          <svg class="player__control__icon player__control__icon--small">
+            <use xlink:href="~/assets/img/sprite.svg#icon-replay_10"></use>
+          </svg>
+        </li>
+        <li class="player__control__btn">
+          <svg class="player__control__icon">
             <use
-              xlink:href="~/assets/img/sprite.svg#icon-controller-jump-to-start"
+              xlink:href="~/assets/img/sprite.svg#icon-play_circle_outline"
             ></use>
           </svg>
-        </button>
-        <button class="btn">
-          <svg class="btn__icon">
+        </li>
+        <!-- <li class="player__control__btn">
+          <svg class="player__control__icon">
             <use
-              xlink:href="~/assets/img/sprite.svg#icon-controller-play"
+              xlink:href="~/assets/img/sprite.svg#icon-pause_circle_outline"
             ></use>
           </svg>
-        </button>
-        <button class="btn">
-          <svg class="btn__icon">
-            <use
-              xlink:href="~/assets/img/sprite.svg#icon-controller-stop"
-            ></use>
+        </li> -->
+        <li class="player__control__btn">
+          <svg class="player__control__icon player__control__icon--small">
+            <use xlink:href="~/assets/img/sprite.svg#icon-forward_30"></use>
           </svg>
-        </button>
-        <button class="btn">
-          <svg class="btn__icon">
-            <use
-              xlink:href="~/assets/img/sprite.svg#icon-controller-next"
-            ></use>
-          </svg>
-        </button>
-        <button class="btn">
-          <svg class="btn__icon">
-            <use xlink:href="~/assets/img/sprite.svg#icon-loop"></use>
-          </svg>
-        </button>
+        </li>
+      </ul>
+
+      <div class="player__timer">
+        <div class="player__timer__elapsed">0:00</div>
+        <div class="slider player__timer__progress-bar">
+          <input type="range" value="0" max="5:55" />
+        </div>
+        <div class="player__timer__total">5:00</div>
       </div>
-      <div class="progress">Progress</div>
     </div>
 
-    <div class="volume">
-      <svg class="volume__icon">
-        <use xlink:href="~/assets/img/sprite.svg#icon-sound"></use>
+    <div class="player__volume">
+      <svg class="player__volume__icon">
+        <use xlink:href="~/assets/img/sprite.svg#icon-volume_up"></use>
       </svg>
-      <div class="volume__slider">Slider</div>
+      <div class="slider player__volume__slider">
+        <input type="range" />
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

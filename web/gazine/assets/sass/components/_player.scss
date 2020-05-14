@@ -1,50 +1,101 @@
-.info {
-  display: flex;
-  align-items: center;
-
-  font-size: var(--fs-body);
-  font-weight: var(--fw-med);
-
-  &__cover {
-    height: 5rem;
-  }
-
-  &__box {
-    letter-spacing: 0.03em;
-    margin-left: 1rem;
-
-    &__title {
-      color: var(--color-grey-light-1);
-    }
-
-    &__author {
-      font-size: var(--fs-small);
-    }
-  }
-}
-
 .control {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 60%;
 }
 
-.volume {
-  &__icon {
-    width: 2rem;
-    height: 2rem;
-    margin-right: 2rem;
-    fill: currentColor;
+.player {
+  &__info {
+    display: flex;
+    align-items: center;
+
+    font-size: var(--fs-body);
+    font-weight: var(--fw-med);
+
+    &__cover {
+      height: 5rem;
+    }
+
+    &__box {
+      letter-spacing: 0.03em;
+      margin-left: 1rem;
+
+      &__title {
+        color: var(--color-grey-light-1);
+      }
+
+      &__author {
+        font-size: var(--fs-small);
+      }
+    }
+  }
+
+  &__control {
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    &__btn:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    &__icon {
+      width: 6rem;
+      height: 6rem;
+      fill: var(--color-grey-light-4);
+    }
+
+    &__icon--small {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
+  &__timer {
+    display: flex;
+    align-items: center;
+    font-size: var(--fs-small);
+    width: inherit;
+
+    &__progress-bar {
+      margin: 0 1rem;
+      width: 100%;
+    }
+  }
+
+  &__volume {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      width: 2rem;
+      height: 2rem;
+      margin-right: 1rem;
+      fill: currentColor;
+    }
   }
 }
 
-.btn {
-  border: none;
-  background-color: inherit;
+.slider {
+  line-height: 1em;
 
-  &__icon {
-    width: 3.5rem;
-    height: 3.5rem;
-    margin-right: 2rem;
-    fill: var(--color-grey-light-4);
+  [type='range'] {
+    appearance: none;
+    background-color: var(--color-grey-light-4);
+    height: 0.7rem;
+    width: 100%;
+
+    &::-webkit-slider-thumb {
+      // appearance: none; // TODO: Chrome is not showing
+      cursor: pointer;
+      height: 1rem;
+      transition: transform 0.2s;
+    }
+
+    &::-moz-range-progress {
+      height: 100%;
+      background-color: orangered;
+    }
   }
 }

@@ -16,7 +16,7 @@
     <nav class="user-nav">
       <div class="user-nav__user">
         <svg class="user-nav__user-photo">
-          <use xlink:href="~/assets/img/sprite.svg#icon-user"></use>
+          <use xlink:href="~/assets/img/sprite.svg#icon-person"></use>
         </svg>
         <span class="user-nav__user-name">Felipe</span>
       </div>
