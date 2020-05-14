@@ -1,5 +1,5 @@
 <template>
-  <div class="podcasts">Podcasts list</div>
+  <div class="content">Podcasts list</div>
 </template>
 
 <script>

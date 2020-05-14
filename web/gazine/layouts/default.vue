@@ -3,17 +3,19 @@
     <Sidebar />
     <Header />
     <nuxt />
-    <div class="player">Player</div>
+    <Player />
   </div>
 </template>
 
 <script>
 import Sidebar from '@/components/Sidebar.vue'
 import Header from '@/components/Header.vue'
+import Player from '@/components/Player.vue'
 export default {
   components: {
     Sidebar,
-    Header
+    Header,
+    Player
   }
 }
 </script>

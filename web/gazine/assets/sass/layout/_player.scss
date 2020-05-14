@@ -1,5 +1,11 @@
-.header {
+.player {
   background-color: var(--clr-background-dark-2);
+  color: var(--color-grey-light-4);
+  grid-area: player;
+  grid-row-start: 3;
+  grid-row-end: 4;
+
+  padding: 0 2rem;
 
   display: flex;
   justify-content: space-between;

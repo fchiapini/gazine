@@ -1,6 +1,50 @@
-.player {
-  background-color: orange;
-  grid-area: player;
-  grid-row-start: 3;
-  grid-row-end: 4;
+.info {
+  display: flex;
+  align-items: center;
+
+  font-size: var(--fs-body);
+  font-weight: var(--fw-med);
+
+  &__cover {
+    height: 5rem;
+  }
+
+  &__box {
+    letter-spacing: 0.03em;
+    margin-left: 1rem;
+
+    &__title {
+      color: var(--color-grey-light-1);
+    }
+
+    &__author {
+      font-size: var(--fs-small);
+    }
+  }
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+}
+
+.volume {
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 2rem;
+    fill: currentColor;
+  }
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+
+  &__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: 2rem;
+    fill: var(--color-grey-light-4);
+  }
 }
