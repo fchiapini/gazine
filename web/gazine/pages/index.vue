@@ -1,9 +1,31 @@
 <template>
-  <div class="content">Podcasts list</div>
+  <div class="podcasts-container">
+    <div
+      v-for="podcast in defaultPodcasts"
+      :key="podcast.collectionId"
+      class="podcast-card"
+    >
+      <img
+        :src="podcast.artworkUrl100"
+        alt="Podcast cover"
+        class="podcast-card__cover"
+      />
+      <div class="podcast-card__info">
+        <span class="podcast-card__info__title">{{
+          podcast.collectionName
+        }}</span>
+        <span class="podcast-card__info__author">{{ podcast.artistName }}</span>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  components: {}
+  components: {},
+  computed: mapState({
+    defaultPodcasts: (state) => state.podcasts.defaultPodcasts
+  })
 }
 </script>

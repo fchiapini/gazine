@@ -2,8 +2,8 @@
   height: 100vh;
   width: 100vw;
   display: grid;
-  grid-template-rows: 8rem auto 10rem;
-  grid-template-columns: 20rem 1fr;
+  grid-template-rows: 8rem minmax(0, 1fr) 10rem;
+  grid-template-columns: 20rem minmax(0, 1fr);
   grid-template-areas:
     'sidebar header'
     'sidebar content'

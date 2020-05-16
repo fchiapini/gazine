@@ -6,7 +6,8 @@
 
 @import 'components/sidebar', 'components/header', 'components/player';
 
-@import 'layout/grid', 'layout/header', 'layout/sidebar', 'layout/player';
+@import 'layout/grid', 'layout/header', 'layout/sidebar', 'layout/home',
+  'layout/player';
 
 @import 'pages/home', 'pages/podcast';
 

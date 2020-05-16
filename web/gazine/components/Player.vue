@@ -1,10 +1,6 @@
 <template>
   <section class="player">
-    <audio
-      ref="audio"
-      src="https://www.listennotes.com/e/p/4e7c59e10e4640b98f2f3cb1777dbb43/"
-      @timeupdate.prevent="seekTimeUpdate"
-    ></audio>
+    <audio ref="audio" src="" @timeupdate.prevent="seekTimeUpdate"></audio>
     <div class="player__info">
       <img
         src="~/assets/img/logo.png"
@@ -19,7 +15,7 @@
 
     <div class="control">
       <ul class="player__control">
-        <li class="player__control__btn">
+        <li class="player__control__btn" @click.prevent="replay10()">
           <svg class="player__control__icon player__control__icon--small">
             <use xlink:href="~/assets/img/sprite.svg#icon-replay_10"></use>
           </svg>
@@ -46,7 +42,7 @@
             ></use>
           </svg>
         </li>
-        <li class="player__control__btn">
+        <li class="player__control__btn" @click.prevent="forward30">
           <svg class="player__control__icon player__control__icon--small">
             <use xlink:href="~/assets/img/sprite.svg#icon-forward_30"></use>
           </svg>
@@ -63,10 +59,6 @@
             min="0"
             max="100"
             step="1"
-            @click="seek($event)"
-            @mousedown="setSeek(true)"
-            @mouseup="setSeek(false)"
-            @mousemove="seek($event)"
           />
         </div>
         <div class="player__timer__total">
@@ -137,8 +129,12 @@ export default {
         this.muted = true
       }
     },
-    replay10() {},
-    forward30() {},
+    replay10() {
+      this.$refs.audio.currentTime -= 10
+    },
+    forward30() {
+      this.$refs.audio.currentTime += 30
+    },
     seekTimeUpdate() {
       this.currentTimePosition =
         this.$refs.audio.currentTime * (100 / this.$refs.audio.duration)
@@ -148,18 +144,6 @@ export default {
     setVolume() {
       this.volume = parseInt(this.$refs.volumeSlider.value)
       this.$refs.audio.volume = this.volume / 100
-    },
-    seek(event) {
-      if (this.seeking) {
-        this.$refs.seekSlider.value =
-          event.clientX - this.$refs.seekSlider.offsetLeft
-        const seekTo =
-          this.$refs.audio.duration * (this.$refs.seekSlider.value / 100)
-        this.$refs.audio.currentTime = seekTo
-      }
-    },
-    setSeek(seeking) {
-      this.seeking = seeking
     }
   }
 }
