@@ -9,7 +9,11 @@ const search = async (req, res) => {
 
 const getPodcast = async (req, res) => {
   const feedUrl = req.query.feedUrl
-  const podcast = await podcastService.getPodcast(feedUrl)
+
+  const buffer = Buffer.from(feedUrl, 'base64')
+  const decodedFeedUrl = buffer.toString('utf-8')
+
+  const podcast = await podcastService.getPodcast(decodedFeedUrl)
   res.json(podcast)
 }
 

@@ -2087,7 +2087,9 @@ export const state = () => ({
       genres: ['Sports', 'Podcasts']
     }
   ],
-  searchedPodcasts: []
+  searchedPodcasts: [],
+
+  podcast: {}
 })
 
 export const mutations = {
@@ -2096,7 +2098,11 @@ export const mutations = {
   },
 
   CLEAR_SEARCHED_PODCASTS(state) {
-    state.searchedPodcasts.length = 0
+    state.searchedPodcasts = []
+  },
+
+  SET_PODCAST(state, podcast) {
+    state.podcast = podcast
   }
 }
 
@@ -2104,6 +2110,12 @@ export const actions = {
   fetchSearchedPodcasts({ commit }, term) {
     return podcastService.search(term).then((response) => {
       commit('SET_SEARCHED_PODCASTS', response.data.results)
+    })
+  },
+
+  fetchPodcastByFeedUrl({ commit }, feedUrl) {
+    return podcastService.getPodcast(feedUrl).then((response) => {
+      commit('SET_PODCAST', response.data)
     })
   },
 
