@@ -1,3 +1,5 @@
+import podcastService from '@/services/podcastService.js'
+
 export const state = () => ({
   defaultPodcasts: [
     {
@@ -2084,5 +2086,28 @@ export const state = () => ({
       genreIds: ['1545', '26'],
       genres: ['Sports', 'Podcasts']
     }
-  ]
+  ],
+  searchedPodcasts: []
 })
+
+export const mutations = {
+  SET_SEARCHED_PODCASTS(state, searchedPodcasts) {
+    state.searchedPodcasts = searchedPodcasts
+  },
+
+  CLEAR_SEARCHED_PODCASTS(state) {
+    state.searchedPodcasts.length = 0
+  }
+}
+
+export const actions = {
+  fetchSearchedPodcasts({ commit }, term) {
+    return podcastService.search(term).then((response) => {
+      commit('SET_SEARCHED_PODCASTS', response.data.results)
+    })
+  },
+
+  clearSearchedPodcasts({ commit }) {
+    commit('CLEAR_SEARCHED_PODCASTS')
+  }
+}

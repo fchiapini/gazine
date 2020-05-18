@@ -1,0 +1,26 @@
+.search-initial-box {
+  color: var(--color-grey-light-4);
+
+  margin-top: 25vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
+    color: var(--color-grey-light-1);
+  }
+
+  &__text {
+    font-size: var(--fs-body);
+    font-weight: var(--fw-med);
+  }
+
+  &__icon {
+    width: 8rem;
+    height: 8rem;
+    fill: currentColor;
+  }
+}

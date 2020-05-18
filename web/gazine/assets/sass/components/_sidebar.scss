@@ -25,7 +25,6 @@
 
 .side-nav {
   font-size: var(--fs-body);
-  letter-spacing: 0.1em;
   font-weight: var(--fw-bold);
   list-style: none;
   margin-bottom: 1em;
@@ -38,7 +37,7 @@
     text-decoration: none;
     text-transform: capitalize;
     display: block;
-    padding: 1em 1rem;
+    padding: 0.5em 1rem;
 
     display: flex;
     align-items: center;
@@ -55,16 +54,15 @@
   }
 
   &__icon {
-    width: 2rem;
-    height: 2rem;
-    margin-right: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 1rem;
     fill: currentColor;
   }
 }
 
 .podcast-nav {
   font-size: var(--fs-body);
-  letter-spacing: 0.1em;
   font-weight: var(--fw-med);
   list-style: none;
 
@@ -74,7 +72,7 @@
     text-decoration: none;
     text-transform: capitalize;
     display: block;
-    padding: 0.7rem 1rem;
+    padding: 0.5rem 1rem;
 
     display: flex;
     align-items: center;

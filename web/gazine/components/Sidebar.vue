@@ -10,20 +10,20 @@
 
     <ul class="side-nav">
       <li class="side-nav__item">
-        <a href="#" class="side-nav__link">
-          <svg class="side-nav__icon">
+        <nuxt-link to="/" class="side-nav__link"
+          ><svg class="side-nav__icon">
             <use xlink:href="~/assets/img/sprite.svg#icon-home"></use>
           </svg>
           <span>Home</span>
-        </a>
+        </nuxt-link>
       </li>
       <li class="side-nav__item">
-        <a href="#" class="side-nav__link">
-          <svg class="side-nav__icon">
+        <nuxt-link to="/podcast/search" class="side-nav__link"
+          ><svg class="side-nav__icon">
             <use xlink:href="~/assets/img/sprite.svg#icon-search"></use>
           </svg>
           <span>Search</span>
-        </a>
+        </nuxt-link>
       </li>
     </ul>
 

@@ -4,11 +4,12 @@
 
 @import 'base/base', 'base/typography';
 
-@import 'components/sidebar', 'components/header', 'components/player';
+@import 'components/sidebar', 'components/header', 'components/player',
+  'components/podcastList';
 
 @import 'layout/grid', 'layout/header', 'layout/sidebar', 'layout/home',
-  'layout/player';
+  'layout/search', 'layout/player';
 
-@import 'pages/home', 'pages/podcast';
+@import 'pages/home', 'pages/search', 'pages/podcast';
 
 @import 'vendors/normalize';
