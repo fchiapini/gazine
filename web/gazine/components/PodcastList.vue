@@ -6,7 +6,7 @@
       class="podcast-card"
     >
       <img
-        :src="podcast.artworkUrl100"
+        :src="podcast.artworkUrl600"
         alt="Podcast cover"
         class="podcast-card__cover"
       />

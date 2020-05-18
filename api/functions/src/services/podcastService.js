@@ -12,9 +12,10 @@ const apiClient = axios.create({
 
 export default {
   search(term) {
-    return apiClient.get(
+    const uri = encodeURI(
       `/search?term=${term}&media=podcast&attribute=titleTerm&entity=podcast`
     )
+    return apiClient.get(uri)
   },
 
   async getPodcast(feedUrl) {

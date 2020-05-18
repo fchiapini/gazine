@@ -1,12 +1,16 @@
 .podcast-card {
   display: flex;
+  flex-direction: column;
+
+  &__cover {
+    width: 20rem;
+  }
 
   &__info {
     display: flex;
     flex-direction: column;
-
+    margin-top: 1rem;
     color: var(--color-grey-light-1);
-    margin-left: 1rem;
 
     &__title {
       font-size: var(--fs-body);
