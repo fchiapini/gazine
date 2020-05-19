@@ -23,6 +23,7 @@ export default {
     const feed = await parser.parseURL(feedUrl)
     return {
       title: feed.title,
+      author: feed.itunes.author,
       description: feed.description,
       image: feed.image,
       episodes: feed.items.slice(0, 10)

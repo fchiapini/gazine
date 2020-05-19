@@ -1,0 +1,29 @@
+.podcast {
+  color: var(--color-grey-light-1);
+  padding: 4rem;
+
+  &__cover {
+    height: 20rem;
+    margin-right: 2rem;
+  }
+
+  &__info {
+    display: flex;
+    align-items: flex-end;
+
+    font-weight: var(--fw-bold);
+
+    &__box__title {
+      font-size: var(--fs-h1);
+    }
+
+    &__box__author {
+      font-size: var(--fs-h3);
+    }
+  }
+
+  &__description {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-med);
+  }
+}
