@@ -5,18 +5,18 @@
   --fw-med: 700;
   --fw-bold: 900;
 
-  --fs-h1: 3rem;
-  --fs-h2: 2.25rem;
-  --fs-h3: 1.25rem;
+  --fs-h1: 3.5rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1.5rem;
   --fs-body: 1.2rem;
   --fs-small: 1rem;
 }
 
 @media (min-width: 800px) {
   :root {
-    --fs-h1: 4.5rem;
-    --fs-h2: 3.75rem;
-    --fs-h3: 1.5rem;
+    --fs-h1: 5rem;
+    --fs-h2: 3rem;
+    --fs-h3: 2rem;
     --fs-body: 1.4rem;
     --fs-small: 1.2rem;
   }

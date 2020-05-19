@@ -5,11 +5,14 @@
   &__cover {
     height: 20rem;
     margin-right: 2rem;
+    border-radius: 10%;
   }
 
   &__info {
     display: flex;
     align-items: flex-end;
+
+    margin-bottom: 2rem;
 
     font-weight: var(--fw-bold);
 
@@ -22,8 +25,73 @@
     }
   }
 
+  &__btn__follow {
+    border: none;
+    background-color: currentColor;
+    padding: 1rem 1.5rem;
+    border: thin solid var(--color-grey-light-4);
+    border-radius: 5%;
+
+    &:hover {
+      border: thin solid var(--color-grey-light-1);
+    }
+
+    span {
+      font-size: var(--fs-body);
+      font-weight: var(--fw-bold);
+      color: var(--color-grey-light-1);
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+    }
+  }
+
   &__description {
-    font-size: var(--fs-h3);
+    font-size: var(--fs-body);
     font-weight: var(--fw-med);
+    letter-spacing: 0.05rem;
+    margin-top: 3rem;
+  }
+
+  &__episodes {
+    &__heading {
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-med);
+      margin: 3rem 0;
+    }
+
+    &__list {
+      font-size: var(--fs-body);
+      font-weight: var(--fw-med);
+      list-style: none;
+      margin-left: 2rem;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      color: var(--color-grey-light-4);
+
+      &:not(:last-child) {
+        margin-bottom: 3rem;
+      }
+
+      &__info {
+        display: flex;
+      }
+
+      &__icon {
+        width: 2rem;
+        height: 2rem;
+        margin-right: 1rem;
+        fill: currentColor;
+        margin-top: 0.3rem;
+
+        flex: 0 0 auto;
+      }
+
+      &__title {
+        color: var(--color-grey-light-1);
+      }
+    }
   }
 }

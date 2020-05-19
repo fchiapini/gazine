@@ -11,11 +11,36 @@
         <p class="podcast__info__box__author">{{ podcast.author }}</p>
       </div>
     </div>
+    <button class="podcast__btn__follow"><span>Follow</span></button>
     <p class="podcast__description">{{ podcast.description }}</p>
     <div class="podcast__episodes">
       <p class="podcast__episodes__heading">
         All Episodes
       </p>
+      <ul class="podcast__episodes__list">
+        <li
+          v-for="(episode, index) in podcast.episodes"
+          :key="index"
+          class="podcast__episodes__item"
+        >
+          <div class="podcast__episodes__item__info">
+            <svg class="podcast__episodes__item__icon">
+              <use xlink:href="~/assets/img/sprite.svg#icon-podcast"></use>
+            </svg>
+            <div class="div podcast__episodes__item__info__box">
+              <div class="podcast__episodes__item__title">
+                {{ episode.title }}
+              </div>
+              <div class="podcast__episodes__item__date">
+                {{ episode.isoDate | date }}
+              </div>
+            </div>
+          </div>
+          <div class="podcast__episodes__item__duration">
+            {{ episode.itunes.duration }}
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
