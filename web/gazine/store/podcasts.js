@@ -2089,7 +2089,9 @@ export const state = () => ({
   ],
   searchedPodcasts: [],
 
-  podcast: {}
+  currentPodcast: {},
+
+  currentEpisode: {}
 })
 
 export const mutations = {
@@ -2102,7 +2104,11 @@ export const mutations = {
   },
 
   SET_PODCAST(state, podcast) {
-    state.podcast = podcast
+    state.currentPodcast = podcast
+  },
+
+  SET_EPISODE(state, episode) {
+    state.currentEpisode = episode
   }
 }
 
@@ -2121,5 +2127,9 @@ export const actions = {
 
   clearSearchedPodcasts({ commit }) {
     commit('CLEAR_SEARCHED_PODCASTS')
+  },
+
+  loadEpisode({ commit }, episode) {
+    commit('SET_EPISODE', episode)
   }
 }

@@ -1,6 +1,10 @@
 <template>
   <section class="player">
-    <audio ref="audio" src="" @timeupdate.prevent="seekTimeUpdate"></audio>
+    <audio
+      ref="audio"
+      :src="currentEpisode.enclosure.url"
+      @timeupdate.prevent="seekTimeUpdate"
+    ></audio>
     <div class="player__info">
       <img
         src="~/assets/img/logo.png"
@@ -8,8 +12,8 @@
         class="player__info__cover"
       />
       <div class="player__info__box">
-        <p class="player__info__box__title">Research and Innovation</p>
-        <p class="player__info__box__author">Felipe podcast</p>
+        <p class="player__info__box__title">{{ currentEpisode.title }}</p>
+        <p class="player__info__box__author">{{ currentEpisode.creator }}</p>
       </div>
     </div>
 
@@ -99,6 +103,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data: () => ({
     duration: 0,
@@ -109,6 +115,19 @@ export default {
     muted: false,
     seeking: false
   }),
+
+  computed: {
+    ...mapState({
+      currentPodcast: (state) => state.podcasts.currentPodcast
+    }),
+    ...mapState({
+      currentEpisode: (state) => state.podcasts.currentEpisode
+    }),
+
+    imageSrc() {
+      return '~/assets/img/logo.png'
+    }
+  },
 
   methods: {
     play() {

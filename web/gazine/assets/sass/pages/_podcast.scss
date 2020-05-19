@@ -1,6 +1,7 @@
 .podcast {
   color: var(--color-grey-light-1);
   padding: 4rem;
+  letter-spacing: 0.1rem;
 
   &__cover {
     height: 20rem;
@@ -28,27 +29,26 @@
   &__btn__follow {
     border: none;
     background-color: currentColor;
-    padding: 1rem 1.5rem;
-    border: thin solid var(--color-grey-light-4);
-    border-radius: 5%;
+    padding: 1rem 3rem;
+    border: 0.2rem solid var(--color-grey-light-4);
+    border-radius: 0.8rem;
 
     &:hover {
-      border: thin solid var(--color-grey-light-1);
+      border: 0.2rem solid var(--color-grey-light-1);
     }
 
     span {
       font-size: var(--fs-body);
       font-weight: var(--fw-bold);
       color: var(--color-grey-light-1);
-      letter-spacing: 0.1rem;
       text-transform: uppercase;
+      letter-spacing: 0.1rem;
     }
   }
 
   &__description {
     font-size: var(--fs-body);
     font-weight: var(--fw-med);
-    letter-spacing: 0.05rem;
     margin-top: 3rem;
   }
 

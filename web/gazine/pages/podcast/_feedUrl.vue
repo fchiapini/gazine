@@ -2,30 +2,35 @@
   <section class="podcast">
     <div class="podcast__info">
       <img
-        :src="podcast.image.url"
+        :src="currentPodcast.image.url"
         alt="Podcast cover"
         class="podcast__cover"
       />
       <div class="podcast__info__box">
-        <p class="podcast__info__box__title">{{ podcast.title }}</p>
-        <p class="podcast__info__box__author">{{ podcast.author }}</p>
+        <p class="podcast__info__box__title">{{ currentPodcast.title }}</p>
+        <p class="podcast__info__box__author">{{ currentPodcast.author }}</p>
       </div>
     </div>
     <button class="podcast__btn__follow"><span>Follow</span></button>
-    <p class="podcast__description">{{ podcast.description }}</p>
+    <p class="podcast__description">{{ currentPodcast.description }}</p>
     <div class="podcast__episodes">
       <p class="podcast__episodes__heading">
         All Episodes
       </p>
       <ul class="podcast__episodes__list">
         <li
-          v-for="(episode, index) in podcast.episodes"
+          v-for="(episode, index) in currentPodcast.episodes"
           :key="index"
           class="podcast__episodes__item"
+          @mouseover="changeIcon"
+          @mouseup="changeIcon"
+          @click="loadEpisode(episode)"
         >
           <div class="podcast__episodes__item__info">
             <svg class="podcast__episodes__item__icon">
-              <use xlink:href="~/assets/img/sprite.svg#icon-podcast"></use>
+              <use
+                xlink:href="~/assets/img/sprite.svg#icon-play_circle_outline"
+              ></use>
             </svg>
             <div class="div podcast__episodes__item__info__box">
               <div class="podcast__episodes__item__title">
@@ -60,8 +65,22 @@ export default {
     }
   },
 
+  data: () => ({
+    isPlayIcon: false
+  }),
+
   computed: mapState({
-    podcast: (state) => state.podcasts.podcast
-  })
+    currentPodcast: (state) => state.podcasts.currentPodcast
+  }),
+
+  methods: {
+    changeIcon() {
+      this.isPlayIcon = !this.isPlayIcon
+    },
+
+    loadEpisode(episode) {
+      this.$store.dispatch('podcasts/loadEpisode', episode)
+    }
+  }
 }
 </script>
