@@ -9,21 +9,24 @@
   &__info {
     display: flex;
     align-items: center;
-    width: 15vw;
 
     font-size: var(--fs-body);
     font-weight: var(--fw-med);
 
     &__cover {
-      height: 8rem;
+      height: 6rem;
     }
 
     &__box {
+      width: 20vw;
       letter-spacing: 0.03em;
       margin-left: 1rem;
 
       &__title {
         color: var(--color-grey-light-1);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       &__author {

@@ -4,6 +4,7 @@
 
   &__cover {
     width: 20rem;
+    height: 20rem;
   }
 
   &__info {
@@ -23,5 +24,10 @@
       font-weight: var(--fw-med);
       color: var(--color-grey-light-4);
     }
+  }
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
   }
 }

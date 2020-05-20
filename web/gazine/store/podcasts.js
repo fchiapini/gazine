@@ -2121,7 +2121,7 @@ export const mutations = {
 export const actions = {
   fetchSearchedPodcasts({ commit }, term) {
     return podcastService.search(term).then((response) => {
-      commit('SET_SEARCHED_PODCASTS', response.data.results)
+      commit('SET_SEARCHED_PODCASTS', response.data)
     })
   },
 

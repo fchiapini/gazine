@@ -7,7 +7,7 @@
     >
       <nuxt-link
         :to="'/podcast/' + encodeURLToBase64(podcast.feedUrl)"
-        class="podcast__link"
+        class="podcast-card__link"
       >
         <img
           :src="podcast.artworkUrl600"

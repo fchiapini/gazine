@@ -172,7 +172,7 @@ export default {
       this.duration = this.$refs.audio.duration
     },
     loadPodcastCover() {
-      this.podcastCover = this.currentPodcast.image.url
+      this.podcastCover = this.currentPodcast.image
     }
   }
 }

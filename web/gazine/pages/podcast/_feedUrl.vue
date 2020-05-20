@@ -2,7 +2,7 @@
   <section class="podcast">
     <div class="podcast__info">
       <img
-        :src="currentPodcast.image.url"
+        :src="currentPodcast.image"
         alt="Podcast cover"
         class="podcast__cover"
       />

@@ -4,7 +4,7 @@ const search = async (req, res) => {
   const term = req.query.term
   console.log(term)
   const result = await podcastService.search(term)
-  res.json(result.data)
+  res.json(result)
 }
 
 const getPodcast = async (req, res) => {

@@ -11,11 +11,16 @@ const apiClient = axios.create({
 })
 
 export default {
-  search(term) {
+  async search(term) {
     const uri = encodeURI(
       `/search?term=${term}&media=podcast&attribute=titleTerm&entity=podcast`
     )
-    return apiClient.get(uri)
+
+    const result = await apiClient.get(uri)
+    const podcasts = result.data.results.filter((podcast) =>
+      podcast.hasOwnProperty('feedUrl')
+    )
+    return podcasts
   },
 
   async getPodcast(feedUrl) {
@@ -24,8 +29,8 @@ export default {
     return {
       title: feed.title,
       author: feed.itunes.author,
-      description: feed.description,
-      image: feed.image,
+      description: feed.itunes.summary,
+      image: feed.itunes.image,
       episodes: feed.items.slice(0, 10)
     }
   }
