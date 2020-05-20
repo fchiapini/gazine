@@ -3,14 +3,15 @@
     <audio
       ref="audio"
       :src="currentEpisode.enclosure.url"
+      autoplay
+      @canplay="loadPodcastCover"
+      @play="togglePause"
+      @pause="togglePause"
+      @durationchange="setDuration"
       @timeupdate.prevent="seekTimeUpdate"
     ></audio>
     <div class="player__info">
-      <img
-        src="~/assets/img/logo.png"
-        alt="Podcast cover"
-        class="player__info__cover"
-      />
+      <img :src="imageSrc" alt="Podcast cover" class="player__info__cover" />
       <div class="player__info__box">
         <p class="player__info__box__title">{{ currentEpisode.title }}</p>
         <p class="player__info__box__author">{{ currentEpisode.creator }}</p>
@@ -108,6 +109,7 @@ import { mapState } from 'vuex'
 export default {
   data: () => ({
     duration: 0,
+    podcastCover: '',
     currentTime: 0,
     currentTimePosition: 0,
     paused: true,
@@ -125,19 +127,18 @@ export default {
     }),
 
     imageSrc() {
-      return '~/assets/img/logo.png'
+      return this.podcastCover === ''
+        ? require('@/assets/img/logo.png')
+        : this.podcastCover
     }
   },
 
   methods: {
     play() {
       this.$refs.audio.play()
-      this.duration = this.$refs.audio.duration
-      this.paused = this.$refs.audio.paused
     },
     pause() {
       this.$refs.audio.pause()
-      this.paused = this.$refs.audio.paused
     },
     mute() {
       if (this.$refs.audio.muted) {
@@ -160,9 +161,18 @@ export default {
 
       this.currentTime = this.$refs.audio.currentTime
     },
+    togglePause() {
+      this.paused = this.$refs.audio.paused
+    },
     setVolume() {
       this.volume = parseInt(this.$refs.volumeSlider.value)
       this.$refs.audio.volume = this.volume / 100
+    },
+    setDuration() {
+      this.duration = this.$refs.audio.duration
+    },
+    loadPodcastCover() {
+      this.podcastCover = this.currentPodcast.image.url
     }
   }
 }

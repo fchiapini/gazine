@@ -2091,7 +2091,13 @@ export const state = () => ({
 
   currentPodcast: {},
 
-  currentEpisode: {}
+  currentEpisode: {
+    enclosure: {
+      url: ''
+    },
+    title: 'No podcast episode',
+    creator: ''
+  }
 })
 
 export const mutations = {

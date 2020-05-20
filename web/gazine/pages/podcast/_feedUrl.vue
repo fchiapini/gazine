@@ -28,9 +28,7 @@
         >
           <div class="podcast__episodes__item__info">
             <svg class="podcast__episodes__item__icon">
-              <use
-                xlink:href="~/assets/img/sprite.svg#icon-play_circle_outline"
-              ></use>
+              <use xlink:href="~/assets/img/sprite.svg#icon-play_arrow"></use>
             </svg>
             <div class="div podcast__episodes__item__info__box">
               <div class="podcast__episodes__item__title">
