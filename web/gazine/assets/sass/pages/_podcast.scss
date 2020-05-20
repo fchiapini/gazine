@@ -70,10 +70,7 @@
       display: flex;
       justify-content: space-between;
       color: var(--color-grey-light-4);
-
-      &:not(:last-child) {
-        margin-bottom: 3rem;
-      }
+      padding: 2rem;
 
       &__info {
         display: flex;
@@ -91,6 +88,19 @@
 
       &__title {
         color: var(--color-grey-light-1);
+      }
+
+      &:hover {
+        background-color: var(--color-grey-dark-1);
+        cursor: default;
+      }
+
+      &--active {
+        color: orangered;
+
+        p {
+          color: inherit;
+        }
       }
     }
   }

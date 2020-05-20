@@ -22,21 +22,37 @@
           v-for="(episode, index) in currentPodcast.episodes"
           :key="index"
           class="podcast__episodes__item"
-          @mouseover="changeIcon"
-          @mouseup="changeIcon"
-          @click="loadEpisode(episode)"
+          :class="{
+            'podcast__episodes__item--active': currentItemPlaying === index
+          }"
+          @mouseover="setCurrentItemHovered(index)"
+          @mouseleave="setCurrentItemHovered(Number.MIN_SAFE_INTEGER)"
+          @click="loadEpisode(episode, index)"
         >
           <div class="podcast__episodes__item__info">
-            <svg class="podcast__episodes__item__icon">
+            <svg
+              v-if="
+                currentItemHovered !== index && currentItemPlaying !== index
+              "
+              class="podcast__episodes__item__icon"
+            >
+              <use xlink:href="~/assets/img/sprite.svg#icon-podcast"></use>
+            </svg>
+            <svg
+              v-if="
+                currentItemHovered === index || currentItemPlaying === index
+              "
+              class="podcast__episodes__item__icon"
+            >
               <use xlink:href="~/assets/img/sprite.svg#icon-play_arrow"></use>
             </svg>
             <div class="div podcast__episodes__item__info__box">
-              <div class="podcast__episodes__item__title">
+              <p class="podcast__episodes__item__title">
                 {{ episode.title }}
-              </div>
-              <div class="podcast__episodes__item__date">
+              </p>
+              <p class="podcast__episodes__item__date">
                 {{ episode.isoDate | date }}
-              </div>
+              </p>
             </div>
           </div>
           <div class="podcast__episodes__item__duration">
@@ -64,7 +80,8 @@ export default {
   },
 
   data: () => ({
-    isPlayIcon: false
+    currentItemHovered: Number.MIN_SAFE_INTEGER,
+    currentItemPlaying: Number.MIN_SAFE_INTEGER
   }),
 
   computed: mapState({
@@ -72,12 +89,17 @@ export default {
   }),
 
   methods: {
-    changeIcon() {
-      this.isPlayIcon = !this.isPlayIcon
+    loadEpisode(episode, index) {
+      this.$store.dispatch('podcasts/loadEpisode', episode)
+      this.setCurrentItemPlaying(index)
     },
 
-    loadEpisode(episode) {
-      this.$store.dispatch('podcasts/loadEpisode', episode)
+    setCurrentItemHovered(indexItem) {
+      this.currentItemHovered = indexItem
+    },
+
+    setCurrentItemPlaying(indexItem) {
+      this.currentItemPlaying = indexItem
     }
   }
 }
