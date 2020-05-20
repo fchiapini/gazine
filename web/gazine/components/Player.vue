@@ -10,6 +10,7 @@
       @durationchange="setDuration"
       @timeupdate.prevent="seekTimeUpdate"
     ></audio>
+
     <div class="player__info">
       <img :src="imageSrc" alt="Podcast cover" class="player__info__cover" />
       <div class="player__info__box">
