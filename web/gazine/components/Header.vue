@@ -24,6 +24,7 @@
         </svg>
         <span class="user-nav__user-name">Felipe</span>
       </div>
+      <button @click.prevent="logout">Logout</button>
     </nav>
   </header>
 </template>
@@ -47,6 +48,9 @@ export default {
       if ((this.term !== null) & (this.term !== '')) {
         this.$store.dispatch('podcasts/fetchSearchedPodcasts', this.term)
       }
+    },
+    logout() {
+      this.$fireAuth.signOut()
     }
   }
 }
