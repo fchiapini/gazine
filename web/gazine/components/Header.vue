@@ -49,8 +49,9 @@ export default {
         this.$store.dispatch('podcasts/fetchSearchedPodcasts', this.term)
       }
     },
-    logout() {
-      this.$fireAuth.signOut()
+    async logout() {
+      await this.$fireAuth.signOut()
+      this.$router.go('/login')
     }
   }
 }

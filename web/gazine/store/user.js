@@ -22,14 +22,6 @@ export const actions = {
       return
     }
     commit('SET_AUTH_USER', { authUser })
-  },
-
-  async login({ commit }, loginInfo) {
-    console.log('Login to firebase...')
-    await this.$fireAuth.signInWithEmailAndPassword(
-      loginInfo.email,
-      loginInfo.password
-    )
   }
 }
 

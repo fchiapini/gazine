@@ -40,12 +40,13 @@ export default {
   methods: {
     async login() {
       try {
-        await this.$store.dispatch('user/login', {
-          email: this.email,
-          password: this.password
-        })
+        await this.$fireAuth.signInWithEmailAndPassword(
+          this.email,
+          this.password
+        )
+        this.$router.push('/podcast/search')
       } catch (error) {
-        console.log(error)
+        alert(error)
       }
     }
   }
