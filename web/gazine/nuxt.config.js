@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -79,8 +79,9 @@ export default {
         initialize: {
           onAuthStateChangedAction: 'user/onAuthStateChanged'
         },
-        ssr: true
-      }
+        ssr: false
+      },
+      firestore: true
     }
   },
   pwa: {

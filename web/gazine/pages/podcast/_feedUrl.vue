@@ -11,7 +11,9 @@
         <p class="podcast__info__box__author">{{ currentPodcast.author }}</p>
       </div>
     </div>
-    <button class="podcast__btn__follow"><span>Follow</span></button>
+    <button class="podcast__btn__follow" @click.prevent="follow">
+      <span>Follow</span>
+    </button>
     <p class="podcast__description">{{ currentPodcast.description }}</p>
     <div class="podcast__episodes">
       <p class="podcast__episodes__heading">
@@ -100,6 +102,10 @@ export default {
 
     setCurrentItemPlaying(indexItem) {
       this.currentItemPlaying = indexItem
+    },
+
+    follow() {
+      this.$store.dispatch('podcasts/followPodcast', this.currentPodcast)
     }
   }
 }

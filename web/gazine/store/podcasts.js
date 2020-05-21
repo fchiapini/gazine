@@ -1,6 +1,8 @@
+import { firestoreAction } from 'vuexfire'
 import podcastService from '@/services/podcastService.js'
 
 export const state = () => ({
+  followingPodcasts: [],
   defaultPodcasts: [
     {
       wrapperType: 'track',
@@ -2119,6 +2121,22 @@ export const mutations = {
 }
 
 export const actions = {
+  bindFollowingPodcastDocument: firestoreAction(async function({
+    rootState,
+    bindFirestoreRef
+  }) {
+    const ref = this.$fireStore
+      .collection('users')
+      .doc(rootState.user.authUser.uid)
+      .collection('podcasts')
+    await bindFirestoreRef('followingPodcasts', ref, { wait: true })
+  }),
+  unbindFollowingPodcastDocument: firestoreAction(function({
+    unbindFirestoreRef
+  }) {
+    unbindFirestoreRef('followingPodcasts', false)
+  }),
+
   fetchSearchedPodcasts({ commit }, term) {
     return podcastService.search(term).then((response) => {
       commit('SET_SEARCHED_PODCASTS', response.data)
@@ -2129,6 +2147,14 @@ export const actions = {
     return podcastService.getPodcast(feedUrl).then((response) => {
       commit('SET_PODCAST', response.data)
     })
+  },
+
+  followPodcast({ rootState }, podcast) {
+    this.$fireStore
+      .collection('users')
+      .doc(rootState.user.authUser.uid)
+      .collection('podcasts')
+      .add(podcast)
   },
 
   clearSearchedPodcasts({ commit }) {

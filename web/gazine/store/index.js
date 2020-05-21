@@ -1,3 +1,5 @@
+import { vuexfireMutations } from 'vuexfire'
+
 export const actions = {
   async nuxtServerInit({ dispatch }, ctx) {
     if (this.$fireAuth === null) {
@@ -41,4 +43,8 @@ export const actions = {
       'Success. Nuxt-fire Objects can be accessed in store actions via this.$fire___'
     )
   }
+}
+
+export const mutations = {
+  ...vuexfireMutations
 }
