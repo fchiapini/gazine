@@ -1,5 +1,5 @@
-export default function({ store, route, redirect }) {
-  const user = store.state.user.authUser
+export default function({ app, route, redirect }) {
+  const user = app.$fireAuth.currentUser
   const searchRoute = '/podcast/search'
   const loginRoute = '/login'
 

@@ -11,8 +11,23 @@
         <p class="podcast__info__box__author">{{ currentPodcast.author }}</p>
       </div>
     </div>
-    <button class="podcast__btn__follow" @click.prevent="follow">
+    <button
+      v-if="!isFollowingPodcast"
+      :title="tooltip"
+      :disabled="!isLoggedIn"
+      class="podcast__btn__follow"
+      @click.prevent="follow"
+    >
       <span>Follow</span>
+    </button>
+    <button
+      v-if="isFollowingPodcast"
+      title="Unfollow podcast"
+      :disabled="!isLoggedIn"
+      class="podcast__btn__follow"
+      @click.prevent="unFollow"
+    >
+      <span>unFollow</span>
     </button>
     <p class="podcast__description">{{ currentPodcast.description }}</p>
     <div class="podcast__episodes">
@@ -67,7 +82,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 
 export default {
   async fetch({ store, error, params }) {
@@ -83,12 +98,34 @@ export default {
 
   data: () => ({
     currentItemHovered: Number.MIN_SAFE_INTEGER,
-    currentItemPlaying: Number.MIN_SAFE_INTEGER
+    currentItemPlaying: Number.MIN_SAFE_INTEGER,
+    podcastFeedUrl: ''
   }),
 
-  computed: mapState({
-    currentPodcast: (state) => state.podcasts.currentPodcast
-  }),
+  computed: {
+    ...mapState({
+      currentPodcast: (state) => state.podcasts.currentPodcast
+    }),
+    ...mapState({
+      followingPodcasts: (state) => state.podcasts.followingPodcasts
+    }),
+    ...mapGetters('user', ['isLoggedIn']),
+    tooltip() {
+      return this.isLoggedIn
+        ? 'Follow podcast'
+        : 'Sig up before following podcast'
+    },
+    isFollowingPodcast() {
+      return this.followingPodcasts.some(
+        (followingPodcast) =>
+          followingPodcast.title === this.currentPodcast.title
+      )
+    }
+  },
+
+  mounted() {
+    this.podcastFeedUrl = this.$route.params.feedUrl
+  },
 
   methods: {
     loadEpisode(episode, index) {
@@ -105,7 +142,26 @@ export default {
     },
 
     follow() {
-      this.$store.dispatch('podcasts/followPodcast', this.currentPodcast)
+      const podcastToFollow = this.createPodcastObject(
+        this.podcastFeedUrl,
+        this.currentPodcast
+      )
+      this.$store.dispatch('podcasts/followPodcast', podcastToFollow)
+    },
+
+    unFollow() {
+      this.$store.dispatch('podcasts/unFollowPodcast', this.currentPodcast)
+    },
+
+    createPodcastObject(feedUrl, { title, author, image }) {
+      const podcastObject = {
+        title,
+        author,
+        image,
+        feedUrl
+      }
+
+      return podcastObject
     }
   }
 }

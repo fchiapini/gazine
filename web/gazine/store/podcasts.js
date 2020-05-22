@@ -2157,6 +2157,20 @@ export const actions = {
       .add(podcast)
   },
 
+  unFollowPodcast({ state, rootState }, podcast) {
+    const podcastToUnfollow = state.followingPodcasts.find(
+      (followingPodcast) => followingPodcast.title === podcast.title
+    )
+    if (podcastToUnfollow !== null) {
+      this.$fireStore
+        .collection('users')
+        .doc(rootState.user.authUser.uid)
+        .collection('podcasts')
+        .doc(podcastToUnfollow.id)
+        .delete()
+    }
+  },
+
   clearSearchedPodcasts({ commit }) {
     commit('CLEAR_SEARCHED_PODCASTS')
   },
