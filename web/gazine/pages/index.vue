@@ -1,5 +1,5 @@
 <template>
-  <PodcastList :podcasts="defaultPodcasts" />
+  <PodcastList :podcasts="topPodcasts" />
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
   },
 
   computed: mapState({
-    defaultPodcasts: (state) => state.podcasts.defaultPodcasts
+    topPodcasts: (state) => state.podcasts.topPodcasts
   }),
 
   /**  Bind Vuexfire on client-side: */

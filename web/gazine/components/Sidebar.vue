@@ -27,61 +27,56 @@
       </li>
     </ul>
 
+    <div class="sidebar__heading">Top Podcasts</div>
     <ul class="podcast-nav">
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 1
-        </a>
+      <li
+        v-for="(podcast, index) in topPodcasts"
+        :key="index"
+        class="podcast-nav__item"
+      >
+        <nuxt-link
+          :title="podcast.title"
+          :to="`/podcast/'${encodeURLToBase64(podcast.feedUrl)}`"
+          class="podcast-nav__link"
+        >
+          {{ podcast.title }}
+        </nuxt-link>
       </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 2
-        </a>
-      </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 3
-        </a>
-      </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 4
-        </a>
-      </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 5
-        </a>
-      </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 6
-        </a>
-      </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 7
-        </a>
-      </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 8
-        </a>
-      </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 9
-        </a>
-      </li>
-      <li class="podcast-nav__item">
-        <a href="#" class="podcast-nav__link">
-          Podcast 10
-        </a>
+    </ul>
+
+    <div class="sidebar__heading">Following</div>
+    <ul class="podcast-nav">
+      <li
+        v-for="(podcast, index) in followingPodcasts"
+        :key="index"
+        class="podcast-nav__item"
+      >
+        <nuxt-link
+          :title="podcast.title"
+          :to="`/podcast/'${podcast.feedUrl}`"
+          class="podcast-nav__link"
+        >
+          {{ podcast.title }}
+        </nuxt-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-export default {}
+import { mapState } from 'vuex'
+import { utils } from '@/mixins/utils.js'
+
+export default {
+  mixins: [utils],
+
+  computed: {
+    ...mapState({
+      topPodcasts: (state) => state.podcasts.topPodcasts
+    }),
+    ...mapState({
+      followingPodcasts: (state) => state.podcasts.followingPodcasts
+    })
+  }
+}
 </script>

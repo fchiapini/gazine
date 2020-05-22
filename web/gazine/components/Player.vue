@@ -14,7 +14,9 @@
     <div class="player__info">
       <img :src="imageSrc" alt="Podcast cover" class="player__info__cover" />
       <div class="player__info__box">
-        <p class="player__info__box__title">{{ currentEpisode.title }}</p>
+        <p :title="currentEpisode.title" class="player__info__box__title">
+          {{ currentEpisode.title }}
+        </p>
         <p class="player__info__box__author">{{ currentEpisode.creator }}</p>
       </div>
     </div>

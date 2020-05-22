@@ -2,6 +2,8 @@
   background-color: var(--clr-background-dark-1);
   padding: 0 1em;
 
+  overflow: auto;
+
   grid-area: sidebar;
 
   display: flex;

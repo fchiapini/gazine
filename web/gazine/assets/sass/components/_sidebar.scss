@@ -61,10 +61,18 @@
   }
 }
 
+.sidebar__heading {
+  color: var(--color-grey-light-4);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-med);
+  text-transform: uppercase;
+}
+
 .podcast-nav {
   font-size: var(--fs-body);
   font-weight: var(--fw-med);
   list-style: none;
+  margin-bottom: 0.5rem;
 
   &__link:link,
   &__link:visited {
@@ -74,8 +82,9 @@
     display: block;
     padding: 0.5rem 1rem;
 
-    display: flex;
-    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__item--active {

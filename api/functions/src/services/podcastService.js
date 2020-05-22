@@ -10,6 +10,17 @@ const apiClient = axios.create({
   }
 })
 
+const onlyWithFeedUrl = (podcast) => podcast.hasOwnProperty('feedUrl')
+
+const normalizePodcast = (podcast) => {
+  return {
+    title: podcast.collectionName,
+    author: podcast.artistName,
+    image: podcast.artworkUrl600,
+    feedUrl: podcast.feedUrl
+  }
+}
+
 export default {
   async search(term) {
     const uri = encodeURI(
@@ -17,9 +28,11 @@ export default {
     )
 
     const result = await apiClient.get(uri)
-    const podcasts = result.data.results.filter((podcast) =>
-      podcast.hasOwnProperty('feedUrl')
-    )
+
+    const podcasts = result.data.results
+      .filter(onlyWithFeedUrl)
+      .map(normalizePodcast)
+
     return podcasts
   },
 

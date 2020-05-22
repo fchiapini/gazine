@@ -1,26 +1,18 @@
 <template>
   <div class="podcasts-container">
-    <div
-      v-for="podcast in podcasts"
-      :key="podcast.collectionId"
-      class="podcast-card"
-    >
+    <div v-for="(podcast, index) in podcasts" :key="index" class="podcast-card">
       <nuxt-link
-        :to="'/podcast/' + encodeURLToBase64(podcast.feedUrl)"
+        :to="`/podcast/'${encodeURLToBase64(podcast.feedUrl)}`"
         class="podcast-card__link"
       >
         <img
-          :src="podcast.artworkUrl600"
+          :src="podcast.image"
           alt="Podcast cover"
           class="podcast-card__cover"
         />
         <div class="podcast-card__info">
-          <span class="podcast-card__info__title">{{
-            podcast.collectionName
-          }}</span>
-          <span class="podcast-card__info__author">{{
-            podcast.artistName
-          }}</span>
+          <span class="podcast-card__info__title">{{ podcast.title }}</span>
+          <span class="podcast-card__info__author">{{ podcast.author }}</span>
         </div>
       </nuxt-link>
     </div>
@@ -28,19 +20,15 @@
 </template>
 
 <script>
+import { utils } from '@/mixins/utils.js'
+
 export default {
+  mixins: [utils],
+
   props: {
     podcasts: {
       type: Array,
       required: true
-    }
-  },
-
-  methods: {
-    encodeURLToBase64(url) {
-      const buffer = Buffer.from(url)
-      const urlBase64 = buffer.toString('base64')
-      return urlBase64
     }
   }
 }
