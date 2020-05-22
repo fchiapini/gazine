@@ -138,14 +138,15 @@ export const mutations = {
 
 export const actions = {
   bindFollowingPodcastDocument: firestoreAction(async function({
-    rootState,
     bindFirestoreRef
   }) {
-    const ref = this.$fireStore
-      .collection('users')
-      .doc(rootState.user.authUser.uid)
-      .collection('podcasts')
-    await bindFirestoreRef('followingPodcasts', ref, { wait: true })
+    if (this.$fireAuth.currentUser) {
+      const ref = this.$fireStore
+        .collection('users')
+        .doc(this.$fireAuth.currentUser.uid)
+        .collection('podcasts')
+      await bindFirestoreRef('followingPodcasts', ref, { wait: true })
+    }
   }),
   unbindFollowingPodcastDocument: firestoreAction(function({
     unbindFirestoreRef

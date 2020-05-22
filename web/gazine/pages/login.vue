@@ -44,6 +44,7 @@ export default {
           this.email,
           this.password
         )
+        await this.$store.dispatch('podcasts/bindFollowingPodcastDocument')
         this.$router.push('/podcast/search')
       } catch (error) {
         alert(error)
