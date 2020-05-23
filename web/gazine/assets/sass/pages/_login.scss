@@ -1,0 +1,81 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-body);
+  align-items: center;
+
+  margin: 0 auto;
+
+  &__brand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    width: 100%;
+
+    border-bottom: var(--line);
+  }
+
+  &__logo {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  &__brand-name {
+    color: inherit;
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-bold);
+  }
+
+  &__title,
+  &__signup__text {
+    font-weight: var(--fw-med);
+    letter-spacing: 0.03rem;
+  }
+
+  &__signup__text {
+    font-size: var(--fs-h3);
+    border-top: var(--line);
+    width: 100%;
+    text-align: center;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+
+    input {
+      appearance: none;
+      border: none;
+      height: 4rem;
+      width: 40rem;
+      margin: 0.5rem 0;
+      border: thin solid var(--color-grey-ligth-5);
+      padding: 0.6rem 1.2rem;
+
+      &:focus {
+        border: thin solid black;
+      }
+    }
+  }
+
+  &__btn-submit {
+    border: none;
+    padding: 1.5rem 1rem;
+    background: $color-component;
+    color: white;
+    font-weight: var(--fw-med);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    border-radius: 5rem;
+    margin: 2rem 0;
+    cursor: pointer;
+
+    &:hover {
+      background: lighten($color-component, 5%);
+    }
+  }
+}
