@@ -5,7 +5,7 @@ const dateFilter = Vue.filter('date', function(date) {
 
   return `${formatedDate.toLocaleString('default', {
     month: 'short'
-  })} ${formatedDate.getDay()}, ${formatedDate.getFullYear()}`
+  })} ${formatedDate.getDate()}, ${formatedDate.getFullYear()}`
 })
 
 Vue.use(dateFilter)
