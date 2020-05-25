@@ -5,11 +5,12 @@
 @import 'base/base', 'base/typography';
 
 @import 'components/sidebar', 'components/header', 'components/player',
-  'components/podcastList';
+  'components/podcastList', 'components/button', 'components/form',
+  'components/footer', 'components/errorMessage';
 
 @import 'layout/grid', 'layout/header', 'layout/sidebar',
   'layout/podcastList.scss', 'layout/search', 'layout/player', 'layout/podcast';
 
-@import 'pages/search', 'pages/podcast', 'pages/login';
+@import 'pages/search', 'pages/podcast';
 
 @import 'vendors/normalize';

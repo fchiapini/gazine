@@ -28,7 +28,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: { color: 'orangered' },
   /*
    ** Global CSS
    */
@@ -36,7 +36,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/time.js', '~/plugins/date.js'],
+  plugins: ['~/plugins/time.js', '~/plugins/date.js', '~/plugins/vuelidate.js'],
 
   /**
    * Router settings

@@ -1,17 +1,17 @@
 <template>
-  <div class="login">
-    <div class="login__brand">
-      <img src="@/assets/img/logo.png" alt="" class="login__logo" />
-      <div class="login__brand-name">Gazine</div>
+  <div class="signup">
+    <div class="signup__brand">
+      <img src="@/assets/img/logo.png" alt="" class="signup__logo" />
+      <div class="signup__brand-name">Gazine</div>
     </div>
 
-    <p class="login__title">To continue, log in to Gazine.</p>
-    <form class="login__form" @submit.prevent>
+    <p class="signup__title">Sign up</p>
+    <form class="signup__form" @submit.prevent>
       <input
         v-model="email"
         type="email"
         placeholder="Email address"
-        class="login__email"
+        class="signup__email"
         required
         @blur="$v.email.$touch()"
       />
@@ -28,35 +28,49 @@
         v-model="password"
         type="password"
         placeholder="Password"
-        class="login__password"
+        class="signup__password"
         required
         @blur="$v.password.$touch()"
       />
-
       <div v-if="$v.password.$error" class="error__notification">
         <p v-if="!$v.password.required" class="errorMessage">
           Password is required.
         </p>
+        <p v-if="!$v.password.minLength" class="errorMessage">
+          Password must have at least
+          {{ $v.password.$params.minLength.min }} characters.
+        </p>
       </div>
+
+      <input
+        v-model="confirmPassword"
+        type="password"
+        placeholder="Confirm Password"
+        class="signup__password"
+        required
+        @blur="$v.confirmPassword.$touch()"
+      />
+      <div v-if="$v.confirmPassword.$error" class="error__notification">
+        <p v-if="!$v.confirmPassword.sameAsPassword" class="errorMessage">
+          Passwords must be identical.
+        </p>
+      </div>
+
       <button
         :disabled="$v.$invalid"
         type="submit"
-        class="btn login__btn-submit"
-        @click="login"
+        class="btn signup__btn-submit"
+        @click="signup"
       >
-        Log in
+        Sign up
       </button>
     </form>
-    <p class="login__signup__text">Don't have an account?</p>
-    <nuxt-link to="/signup" class="btn login__signup__link"
-      >Signup for Gazine</nuxt-link
-    >
     <Footer />
   </div>
 </template>
 
 <script>
-import { required, email } from 'vuelidate/lib/validators'
+import { required, email, sameAs, minLength } from 'vuelidate/lib/validators'
 import Footer from '@/components/Footer.vue'
 
 export default {
@@ -65,8 +79,9 @@ export default {
   },
 
   data: () => ({
-    email: null,
-    password: null
+    email: '',
+    password: '',
+    confirmPassword: ''
   }),
 
   validations: {
@@ -75,21 +90,24 @@ export default {
       email
     },
     password: {
-      required
+      required,
+      minLength: minLength(6)
+    },
+    confirmPassword: {
+      sameAsPassword: sameAs('password')
     }
   },
 
   methods: {
-    async login() {
+    async signup() {
       this.$v.$touch()
       if (!this.$v.$invalid) {
         try {
           this.$nuxt.$loading.start()
-          await this.$fireAuth.signInWithEmailAndPassword(
+          await this.$fireAuth.createUserWithEmailAndPassword(
             this.email,
             this.password
           )
-          await this.$store.dispatch('podcasts/bindFollowingPodcastDocument')
           this.$nuxt.$loading.finish()
           this.$router.push('/podcast/search')
         } catch (error) {

@@ -10,6 +10,7 @@
   --fs-h3: 1.5rem;
   --fs-body: 1.2rem;
   --fs-small: 1rem;
+  --fs-footer: 0.8rem;
 }
 
 @media (min-width: 800px) {
@@ -19,5 +20,6 @@
     --fs-h3: 2rem;
     --fs-body: 1.4rem;
     --fs-small: 1.2rem;
+    --fs-footer: 1rem;
   }
 }

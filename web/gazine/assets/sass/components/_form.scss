@@ -1,4 +1,5 @@
-.login {
+.login,
+.signup {
   display: flex;
   flex-direction: column;
   font-size: var(--fs-body);
@@ -53,7 +54,7 @@
       height: 4rem;
       width: 40rem;
       margin: 0.5rem 0;
-      border: thin solid var(--color-grey-ligth-5);
+      border: thin solid var(--color-grey-light-5);
       padding: 0.6rem 1.2rem;
 
       &:focus {
@@ -63,19 +64,29 @@
   }
 
   &__btn-submit {
-    border: none;
-    padding: 1.5rem 1rem;
     background: $color-component;
     color: white;
-    font-weight: var(--fw-med);
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    border-radius: 5rem;
-    margin: 2rem 0;
-    cursor: pointer;
 
     &:hover {
       background: lighten($color-component, 5%);
     }
+
+    &:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+  }
+
+  &__signup__link:link,
+  &__signup__link:visited {
+    text-decoration: none;
+    color: var(--color-grey-dark-2);
+    border: 0.2rem solid var(--color-grey-dark-2);
+    width: 100%;
+  }
+
+  &__signup__link:hover {
+    color: white;
+    background-color: var(--color-grey-dark-2);
   }
 }
