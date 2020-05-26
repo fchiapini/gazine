@@ -2,7 +2,7 @@
   <div class="podcasts-container">
     <div v-for="(podcast, index) in podcasts" :key="index" class="podcast-card">
       <nuxt-link
-        :to="`/podcast/'${encodeURLToBase64(podcast.feedUrl)}`"
+        :to="`/podcast/'${getFeedUrl(podcast.feedUrl)}`"
         class="podcast-card__link"
       >
         <img
@@ -29,6 +29,16 @@ export default {
     podcasts: {
       type: Array,
       required: true
+    }
+  },
+
+  methods: {
+    isEncodedURL(url) {
+      return !url.includes('http')
+    },
+
+    getFeedUrl(url) {
+      return this.isEncodedURL(url) ? url : this.encodeURLToBase64(url)
     }
   }
 }
