@@ -65,7 +65,7 @@ export default {
 
   methods: {
     search() {
-      if ((this.term !== null) & (this.term !== ''))
+      if (this.user && this.term !== null && this.term !== '')
         this.$store.dispatch('podcasts/fetchSearchedPodcasts', this.term)
     },
     async logout() {
