@@ -19,4 +19,4 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => res.send('Welcome to Gazine Api!'))
 
-export const webApi = functions.https.onRequest(app)
+export const restApi = functions.https.onRequest(app)
