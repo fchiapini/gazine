@@ -1,0 +1,9 @@
+.login,
+.signup {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-body);
+  align-items: center;
+
+  overflow: auto;
+}

@@ -46,11 +46,11 @@
       >
         Log in
       </button>
+      <p class="login__signup__text">Don't have an account?</p>
+      <nuxt-link to="/signup" class="btn login__signup__link"
+        >Signup for Gazine</nuxt-link
+      >
     </form>
-    <p class="login__signup__text">Don't have an account?</p>
-    <nuxt-link to="/signup" class="btn login__signup__link"
-      >Signup for Gazine</nuxt-link
-    >
     <Footer />
   </div>
 </template>

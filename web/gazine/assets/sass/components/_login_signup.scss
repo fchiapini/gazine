@@ -1,12 +1,5 @@
 .login,
 .signup {
-  display: flex;
-  flex-direction: column;
-  font-size: var(--fs-body);
-  align-items: center;
-
-  margin: 0 auto;
-
   &__brand {
     display: flex;
     justify-content: center;
@@ -82,7 +75,6 @@
     text-decoration: none;
     color: var(--color-grey-dark-2);
     border: 0.2rem solid var(--color-grey-dark-2);
-    width: 100%;
   }
 
   &__signup__link:hover {
