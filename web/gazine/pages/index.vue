@@ -1,5 +1,5 @@
 <template>
-  <PodcastList :podcasts="topPodcasts" />
+  <PodcastList :podcasts="podcasts" />
 </template>
 
 <script>
@@ -14,7 +14,15 @@ export default {
     ...mapState({
       topPodcasts: (state) => state.podcasts.topPodcasts
     }),
-    ...mapGetters('user', ['isLoggedIn'])
+    ...mapState({
+      followingPodcasts: (state) => state.podcasts.followingPodcasts
+    }),
+    ...mapGetters('user', ['isLoggedIn']),
+    podcasts() {
+      return this.followingPodcasts.length === 0
+        ? this.topPodcasts
+        : this.followingPodcasts
+    }
   },
 
   /**  Bind Vuexfire on client-side: */
