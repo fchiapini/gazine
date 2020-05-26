@@ -62,6 +62,7 @@
         <div class="slider player__timer__progress-bar">
           <input
             ref="seekSlider"
+            :style="styleSeekSliderProgress"
             type="range"
             :value="currentTimePosition"
             min="0"
@@ -93,6 +94,7 @@
       <div class="slider player__volume__slider">
         <input
           ref="volumeSlider"
+          :style="styleVolumeSliderLevel"
           type="range"
           :value="volume"
           min="0"
@@ -128,11 +130,16 @@ export default {
     ...mapState({
       currentEpisode: (state) => state.podcasts.currentEpisode
     }),
-
     imageSrc() {
       return this.podcastCover === ''
         ? require('@/assets/img/logo.png')
         : this.podcastCover
+    },
+    styleSeekSliderProgress() {
+      return `background-image: -webkit-gradient(linear,left top,right top,color-stop(${this.currentTimePosition}%, orangered),color-stop(${this.currentTimePosition}%, var(--color-grey-light-4)))`
+    },
+    styleVolumeSliderLevel() {
+      return `background-image: -webkit-gradient(linear,left top,right top,color-stop(${this.volume}%, orangered),color-stop(${this.volume}%, var(--color-grey-light-4)))`
     }
   },
 

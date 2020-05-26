@@ -94,21 +94,72 @@
   line-height: 1em;
 
   [type='range'] {
-    appearance: none;
-    background-color: var(--color-grey-light-4);
+    -webkit-appearance: none;
     height: 0.7rem;
     width: 100%;
+    background: transparent;
 
-    &::-webkit-slider-thumb {
-      // appearance: none; // TODO: Chrome is not showing
+    &:focus {
+      outline: none;
+    }
+
+    &::-ms-track {
+      width: 100%;
       cursor: pointer;
-      height: 1rem;
+
+      /* Hides the slider so custom styles can be added */
+      background: var(--color-grey-light-4);
+      border-color: transparent;
+      color: transparent;
+    }
+
+    /* Special styling for WebKit/Blink */
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      border: 1px solid #000000;
+      background: var(--color-grey-light-1);
+      height: 2rem;
+      width: 1rem;
+      border-radius: 0.3rem;
+      margin-top: -0.7rem;
+      cursor: pointer;
       transition: transform 0.2s;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    }
+
+    /* Firefox */
+    &::-moz-range-thumb {
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border: 1px solid #000000;
+      height: 1.5rem;
+      width: 1rem;
+      border-radius: 0.3rem;
+      background: var(--color-grey-light-1);
+      cursor: pointer;
+    }
+
+    &::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
+    }
+
+    &::-moz-range-track {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+      background: var(--color-grey-light-4);
+      border-radius: 1.3px;
+      border: 0.2px solid #010101;
     }
 
     &::-moz-range-progress {
       height: 100%;
-      background-color: orangered;
+      background-color: $color-component;
     }
   }
 }
