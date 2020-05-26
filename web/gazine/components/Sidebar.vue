@@ -1,11 +1,10 @@
 <template>
   <nav class="sidebar">
-    <a href="#" class="brand"> </a>
     <div class="brand">
-      <a href="#" class="brand__link">
+      <nuxt-link to="/" class="brand__link">
         <img class="brand__logo" src="~/assets/img/logo.png" alt="Logo" />
         <span class="brand__name">gazine</span>
-      </a>
+      </nuxt-link>
     </div>
 
     <ul class="side-nav">
