@@ -145,10 +145,10 @@ export default {
 
   methods: {
     play() {
-      this.$refs.audio.play()
+      if (this.$refs.audio) this.$refs.audio.play()
     },
     pause() {
-      this.$refs.audio.pause()
+      if (this.$refs.audio) this.$refs.audio.pause()
     },
     mute() {
       if (this.$refs.audio.muted) {
@@ -160,10 +160,10 @@ export default {
       }
     },
     replay10() {
-      this.$refs.audio.currentTime -= 10
+      if (this.$refs.audio) this.$refs.audio.currentTime -= 10
     },
     forward30() {
-      this.$refs.audio.currentTime += 30
+      if (this.$refs.audio) this.$refs.audio.currentTime += 30
     },
     seekTimeUpdate() {
       this.currentTimePosition =

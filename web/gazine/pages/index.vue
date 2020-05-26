@@ -32,7 +32,7 @@ export default {
         await this.$store.dispatch('podcasts/bindFollowingPodcastDocument')
       }
     } catch (e) {
-      console.error(e)
+      alert(e)
     }
   }
 }
