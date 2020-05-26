@@ -47,7 +47,7 @@ export default {
       const buffer = Buffer.from(feedUrl, 'base64')
       const decodedFeedUrl = buffer.toString('utf-8')
       const parser = new Parser()
-      const feed = await parser.parseURL(CORS_PROXY + decodedFeedUrl)
+      const feed = await parser.parseURL(`${CORS_PROXY}${decodedFeedUrl}`)
       return {
         title: feed.title,
         author: feed.itunes.author,
