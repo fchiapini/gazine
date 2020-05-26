@@ -156,13 +156,13 @@ export const actions = {
 
   fetchSearchedPodcasts({ commit }, term) {
     return podcastService.search(term).then((response) => {
-      commit('SET_SEARCHED_PODCASTS', response.data)
+      commit('SET_SEARCHED_PODCASTS', response)
     })
   },
 
   fetchPodcastByFeedUrl({ commit }, feedUrl) {
     return podcastService.getPodcast(feedUrl).then((response) => {
-      commit('SET_PODCAST', response.data)
+      commit('SET_PODCAST', response)
     })
   },
 

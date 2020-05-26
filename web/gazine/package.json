@@ -21,6 +21,7 @@
     "firebase": "^7.14.4",
     "firebase-admin": "^8.12.1",
     "nuxt": "^2.0.0",
+    "rss-parser": "^3.8.0",
     "vuelidate": "^0.7.5",
     "vuexfire": "^3.2.2"
   },
