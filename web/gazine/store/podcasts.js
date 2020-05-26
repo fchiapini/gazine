@@ -26,13 +26,6 @@ export const state = () => ({
       feedUrl: 'https://feeds.feedwrench.com/JavaScriptJabber.rss'
     },
     {
-      title: 'CodeNewbie',
-      author: 'CodeNewbie',
-      image:
-        'https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/29/d5/e8/29d5e802-b5e7-9dc4-f300-e6472ac27d04/mza_440076239163041537.png/600x600bb.jpg',
-      feedUrl: 'http://feeds.codenewbie.org/cnpodcast.xml'
-    },
-    {
       title: 'Developer Tea',
       author: 'Spec',
       image:
