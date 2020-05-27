@@ -145,7 +145,7 @@ export default {
 
   methods: {
     play() {
-      if (this.$refs.audio) this.$refs.audio.play()
+      if (this.isCurrentEpisodeLoaded()) this.$refs.audio.play()
     },
     pause() {
       if (this.$refs.audio) this.$refs.audio.pause()
@@ -183,6 +183,9 @@ export default {
     },
     loadPodcastCover() {
       this.podcastCover = this.currentPodcast.image
+    },
+    isCurrentEpisodeLoaded() {
+      return this.currentEpisode.enclosure.url !== ''
     }
   }
 }
