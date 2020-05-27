@@ -6,7 +6,7 @@
           v-model="term"
           type="text"
           class="search__input"
-          placeholder="Search for Podcasts"
+          placeholder="Search for Podcast title"
           @keyup.enter="search"
         />
         <button class="search__button" @click="search">
