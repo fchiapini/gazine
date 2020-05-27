@@ -201,7 +201,7 @@ api/podcast?feedUrl=encodedURL
 
   - [Node](https://nodejs.org/en/)
 
-```bash
+```
   $ cd api/functions
   # install dependencies
   $ npm install
@@ -212,7 +212,7 @@ api/podcast?feedUrl=encodedURL
  # build for production and launch server
  $ npm run build
  $ npm run deploy
-
+```
 
 ### Built With
 
@@ -235,4 +235,7 @@ Please send me an email to fchiapini@gmail.com I will be happy to help
 ## Acknowledgments
 
 - A special thanks to my wife for supporting me
+
+```
+
 ```
