@@ -235,7 +235,3 @@ Please send me an email to fchiapini@gmail.com I will be happy to help
 ## Acknowledgments
 
 - A special thanks to my wife for supporting me
-
-```
-
-```
