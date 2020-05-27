@@ -172,7 +172,7 @@ firebase deploy --only hosting
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-### Prerequisites Backend api/functions folder
+## Prerequisites Backend api/functions folder
 
 **_Currently the api is not being called from frontend_** but is already working for search podcasts:
 
@@ -218,6 +218,7 @@ api/podcast?feedUrl=encodedURL
 
 - [Nuxt.js](https://nuxtjs.org/) - The Progressive Vue.js Framework
 - [iTunes Search API](https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/) - The Search API allows you to place search fields in your website to search for content within the iTunes Store and Apple Books Store. You can search for a variety of content; including books, movies, podcasts, music, music videos, audiobooks, and TV shows.
+- [Sass](https://sass-lang.com/) - Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
 - [Firebase Authentication](https://firebase.google.com/docs/auth) - Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
 - [Firebase Firestore](https://firebase.google.com/docs/firestore) - Cloud Firestore is a flexible, scalable database for mobile, web, and server development from Firebase and Google Cloud Platform.
 - [Firebase Hosting](https://firebase.google.com/docs/hosting) - Firebase Hosting provides fast and secure hosting for your web app, static and dynamic content, and microservices.
