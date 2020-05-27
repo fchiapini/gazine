@@ -19,11 +19,11 @@
     }
 
     &__box {
-      width: 20vw;
       letter-spacing: 0.03em;
       margin-left: 1rem;
 
       &__title {
+        max-width: 15vw;
         color: var(--color-grey-light-1);
         white-space: nowrap;
         overflow: hidden;
