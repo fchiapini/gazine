@@ -7,7 +7,7 @@ You can sign up and login to follow podcasts of your interest.
 
 [Live Demo](https://gazine.firebaseapp.com)
 
-![Screenshot1](https://github.com/fchiapini/gazine/master/web/gazine/screenshots/gazine_screenshot1)
+![Screenshot1](web/gazine/screenshots/gazine_screenshot1.PNG)
 
 ## Getting Started
 
