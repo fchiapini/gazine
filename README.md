@@ -9,6 +9,10 @@ You can sign up and login to follow podcasts of your interest.
 
 ![Screenshot1](web/gazine/screenshots/gazine_screenshot1.PNG)
 
+![Screenshot2](web/gazine/screenshots/gazine_screenshot2.PNG)
+
+![Screenshot3](web/gazine/screenshots/gazine_screenshot3.PNG)
+
 ## Getting Started
 
 ### Prerequisites
